@@ -1,1 +1,7 @@
 D:\SocialNetworkForPandas\SocialNetworkForPandas\SocialNetworkForPandas\Panda\bin\Debug\Panda.exe.config
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\Panda\bin\Debug\Panda.exe.config
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\Panda\bin\Debug\Panda.exe
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\Panda\bin\Debug\Panda.pdb
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\Panda\obj\Debug\Panda.csprojResolveAssemblyReference.cache
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\Panda\obj\Debug\Panda.exe
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\Panda\obj\Debug\Panda.pdb

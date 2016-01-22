@@ -1,1 +1,2 @@
 C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\UnitTestsForPanda\bin\Debug\UnitTestsForPanda.exe.config
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestsForPanda\bin\Debug\UnitTestsForPanda.exe.config

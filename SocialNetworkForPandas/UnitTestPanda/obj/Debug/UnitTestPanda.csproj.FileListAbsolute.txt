@@ -1,0 +1,8 @@
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\obj\Debug\UnitTestPanda.csprojResolveAssemblyReference.cache
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\bin\Debug\UnitTestPanda.dll
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\bin\Debug\UnitTestPanda.pdb
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\bin\Debug\Panda.exe
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\bin\Debug\Panda.pdb
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\obj\Debug\UnitTestPanda.dll
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\UnitTestPanda\obj\Debug\UnitTestPanda.pdb
