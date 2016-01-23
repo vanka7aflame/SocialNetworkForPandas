@@ -8,31 +8,24 @@
     using System.Threading.Tasks;
     using System.Xml.Schema;
 
+    public enum GenderType
+    {
+        Male,
+        Female
+    };
+
     public class Panda
     {
         private string name;
         private string email;
         private bool isMale = false, isFemale = false;
-
-        private string Gender()
-        {
-            if (isMale)
-            {
-                return "Male";
-            }
-            return "Female";
-        }
-
-        public enum GenderType
-        {
-            Male,
-            Female
-        };
+        private GenderType gender;
 
         public Panda(string name, string email, GenderType gender)
         {
             this.Name = name;
             this.Email = email;
+            this.gender = gender;
             if (GenderType.Male == gender)
             {
                 this.IsMale = true;
@@ -46,7 +39,18 @@
         public string Name
         {
             get { return this.name; }
-            private set { this.name = value; }
+            private set
+            {
+                if (IsNameValid(value))
+                {
+                    this.name = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Invalid name!");
+                }
+
+            }
         }
 
         public string Email
@@ -77,15 +81,28 @@
             get { return this.isFemale; }
             set { this.isFemale = value; }
         }
-        
+
         public override bool Equals(object obj)
         {
             Panda panda = (Panda)obj;
-            if (this.name == panda.name && this.email == panda.email && this.Gender() == panda.Gender())
+            if (this.name == panda.name && this.email == panda.email && this.gender == panda.gender)
             {
                 return true;
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+
+                hash = hash * 23 + name.GetHashCode();
+                hash = hash * 23 + email.GetHashCode();
+                hash = hash * 23 + gender.GetHashCode();
+                return hash;
+            }
         }
 
         public static bool IsNameValid(string name)
@@ -105,5 +122,6 @@
                                        @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
             return rgxEmail.IsMatch(strEmail);
         }
+
     }
 }
