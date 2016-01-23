@@ -10,8 +10,8 @@ namespace Panda
     {
         static void Main(string[] args)
         {
-            Panda panda = new Panda("Ivan", "asd@abv.bg", Panda.GenderType.Female);
-            Console.WriteLine(panda.Name);
+            Panda panda = new Panda("Ivan", "asd@abv.bg", GenderType.Female);
+            Console.WriteLine(panda.ToString());
         }
     }
 }

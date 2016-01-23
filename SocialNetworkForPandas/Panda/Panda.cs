@@ -19,7 +19,8 @@
         private string name;
         private string email;
         private bool isMale = false, isFemale = false;
-        private GenderType gender;
+        public GenderType gender;
+        public List<Panda> friends = new List<Panda>(); 
 
         public Panda(string name, string email, GenderType gender)
         {
@@ -34,6 +35,7 @@
             {
                 this.IsFemale = true;
             }
+            this.friends = new List<Panda>();
         }
 
         public string Name
@@ -80,6 +82,19 @@
         {
             get { return this.isFemale; }
             set { this.isFemale = value; }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder result = new StringBuilder();
+            result.AppendFormat(
+                    "Panda Name: {0}, Email: {1}, Gender: {2}, IsMale: {3}, IsFemale: {4} \nList of friends: \n",
+                    this.name, this.email, this.gender, this.isMale, this.isFemale);
+                foreach (var friend in friends)
+                {
+                    result.Append(friend.Name + " ");
+                }
+            return result.ToString();
         }
 
         public override bool Equals(object obj)
