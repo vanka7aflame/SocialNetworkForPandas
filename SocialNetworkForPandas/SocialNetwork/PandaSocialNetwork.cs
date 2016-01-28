@@ -10,14 +10,18 @@ namespace SocialNetwork
     using System.Threading.Tasks;
     using Panda;
 
-    
+
 
     public class PandaSocialNetwork
     {
-        private List<Panda> _pandaUsers = new List<Panda>();
+        public List<Panda> _pandaUsers = new List<Panda>();
 
         public void AddPanda(Panda panda)
         {
+            if (_pandaUsers.Contains(panda))
+            {
+                throw new PandaAlreadyExistException();
+            }
             _pandaUsers.Add(panda);
         }
 
@@ -42,23 +46,23 @@ namespace SocialNetwork
                 AddPanda(panda2);
             }
 
-            if (!panda1.friends.Contains(panda2))
+            if(panda1.Friends.Contains(panda2) && panda2.Friends.Contains(panda1))
             {
-                panda1.friends.Add(panda2);
+                throw new PandaAlreadyFriendsException();
             }
-            else if (!panda2.friends.Contains(panda1))
+            if (!panda1.Friends.Contains(panda2))
             {
-                panda2.friends.Add(panda1);
+                panda1.Friends.Add(panda2);
             }
-            else
+            else if (!panda2.Friends.Contains(panda1))
             {
-                throw new ArgumentException("Already friends!");
+                panda2.Friends.Add(panda1);
             }
         }
 
         public bool AreFriends(Panda panda1, Panda panda2)
         {
-            if (panda1.friends.Contains(panda2) && panda2.friends.Contains(panda1))
+            if (panda1.Friends.Contains(panda2) && panda2.Friends.Contains(panda1))
             {
                 return true;
             }
@@ -71,18 +75,18 @@ namespace SocialNetwork
 
             if (HasPanda(panda))
             {
-                result = panda.friends;
+                result = panda.Friends;
             }
 
             return result;
         }
 
         public int Connectionlevel(Panda panda1, Panda panda2)
-        {   
+        {
             var inQueue = new Queue<PandaWithLevel>();
             var visited = new List<int>();
 
-            inQueue.Enqueue(new PandaWithLevel {Level = 0, Panda = panda1.GetHashCode()});
+            inQueue.Enqueue(new PandaWithLevel { Level = 0, Panda = panda1.GetHashCode() });
             while (inQueue.Count > 0)
             {
                 var currPandaWithLevel = inQueue.Dequeue();
@@ -96,15 +100,15 @@ namespace SocialNetwork
                     visited.Add(currPandaWithLevel.Panda);
                 }
 
-                Panda currPanda = _pandaUsers.FirstOrDefault(p => p.GetHashCode() == currPandaWithLevel.Panda.GetHashCode());
+                var currPanda = _pandaUsers.FirstOrDefault(p => p.GetHashCode() == currPandaWithLevel.Panda.GetHashCode());
 
-                if (currPanda != null && currPanda.friends != null && currPanda.friends.Count > 0)
+                if (currPanda != null && currPanda.Friends != null && currPanda.Friends.Count > 0)
                 {
-                    foreach (var friend in currPanda.friends)
+                    foreach (var friend in currPanda.Friends)
                     {
                         if (!visited.Contains(friend.GetHashCode()))
                         {
-                            inQueue.Enqueue(new PandaWithLevel {Level = currPandaWithLevel.Level + 1, Panda = friend.GetHashCode()});
+                            inQueue.Enqueue(new PandaWithLevel { Level = currPandaWithLevel.Level + 1, Panda = friend.GetHashCode() });
                         }
                     }
                 }
@@ -121,17 +125,17 @@ namespace SocialNetwork
         {
             var inQueue = new Queue<PandaWithLevel>();
             var visited = new List<int>();
-            int genderCounter = 0;
+            var genderCounter = 0;
 
-            inQueue.Enqueue(new PandaWithLevel {Level = 0, Panda = panda.GetHashCode()});
-            foreach (var friend in panda.friends)
+            inQueue.Enqueue(new PandaWithLevel { Level = 0, Panda = panda.GetHashCode() });
+            foreach (var friend in panda.Friends)
             {
-                inQueue.Enqueue(new PandaWithLevel {Level = 1, Panda = friend.GetHashCode()});
+                inQueue.Enqueue(new PandaWithLevel { Level = 1, Panda = friend.GetHashCode() });
             }
             while (inQueue.Count > 0)
             {
                 var currPandaWithLevel = inQueue.Dequeue();
-                Panda currPanda = _pandaUsers.FirstOrDefault(p => p.GetHashCode() == currPandaWithLevel.Panda.GetHashCode());
+                var currPanda = _pandaUsers.FirstOrDefault(p => p.GetHashCode() == currPandaWithLevel.Panda.GetHashCode());
                 if (!visited.Contains(currPanda.GetHashCode()) && currPanda.gender == gender)
                 {
                     visited.Add(currPandaWithLevel.Panda);
@@ -139,7 +143,7 @@ namespace SocialNetwork
                 }
                 if (currPandaWithLevel.Level < level)
                 {
-                    foreach (var friend in currPanda.friends)
+                    foreach (var friend in currPanda.Friends)
                     {
                         if (!visited.Contains(friend.GetHashCode()))
                         {
@@ -150,7 +154,26 @@ namespace SocialNetwork
             }
             return genderCounter;
         }
+    }
 
+    public class PandaAlreadyExistException : Exception
+    {
+        public PandaAlreadyExistException() : base("Panda already exists!") { }
+        public PandaAlreadyExistException(string message) : base(message) { }
+        public PandaAlreadyExistException(string message, Exception inner) : base(message, inner) { }
+        protected PandaAlreadyExistException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
+    }
+
+    public class PandaAlreadyFriendsException : Exception
+    {
+        public PandaAlreadyFriendsException() : base("Already friends!") { }
+        public PandaAlreadyFriendsException(string message) : base(message) { }
+        public PandaAlreadyFriendsException(string message, Exception inner) : base(message, inner) { }
+        protected PandaAlreadyFriendsException(
+          System.Runtime.Serialization.SerializationInfo info,
+          System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
     }
 
     public class PandaWithLevel
@@ -159,3 +182,4 @@ namespace SocialNetwork
         public int Level;
     }
 }
+

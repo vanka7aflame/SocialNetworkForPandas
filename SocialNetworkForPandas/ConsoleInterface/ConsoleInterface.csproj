@@ -49,6 +49,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Panda\Panda.csproj">
+      <Project>{4dc97e2c-6d53-4350-ad1a-34a461a331a9}</Project>
+      <Name>Panda</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialNetwork\SocialNetwork.csproj">
+      <Project>{46a2001b-b30e-4a9a-a88e-f04c86135daf}</Project>
+      <Name>SocialNetwork</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

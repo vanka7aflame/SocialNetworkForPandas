@@ -4,3 +4,8 @@ C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\Cons
 C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\bin\Debug\ConsoleInterface.pdb
 C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\obj\Debug\ConsoleInterface.exe
 C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\obj\Debug\ConsoleInterface.pdb
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\bin\Debug\Panda.exe
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\bin\Debug\SocialNetwork.exe
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\bin\Debug\Panda.pdb
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\bin\Debug\SocialNetwork.pdb
+C:\vanka7a\PandaSocialNetwork\SocialNetworkForPandas\SocialNetworkForPandas\ConsoleInterface\obj\Debug\ConsoleInterface.csprojResolveAssemblyReference.cache

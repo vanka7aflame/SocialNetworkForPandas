@@ -20,7 +20,11 @@
         private string email;
         private bool isMale = false, isFemale = false;
         public GenderType gender;
-        public List<Panda> friends = new List<Panda>(); 
+        public List<Panda> Friends = new List<Panda>();
+
+        public Panda()
+        {
+        }
 
         public Panda(string name, string email, GenderType gender)
         {
@@ -35,7 +39,7 @@
             {
                 this.IsFemale = true;
             }
-            this.friends = new List<Panda>();
+            this.Friends = new List<Panda>();
         }
 
         public string Name
@@ -43,14 +47,15 @@
             get { return this.name; }
             private set
             {
-                if (IsNameValid(value))
-                {
-                    this.name = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Invalid name!");
-                }
+                this.name = value;
+                //if (IsNameValid(value))
+                //{
+                //    this.name = value;
+                //}
+                //else
+                //{
+                //    throw new ArgumentException("ERROR: Invalid name!");
+                //}
 
             }
         }
@@ -66,7 +71,7 @@
                 }
                 else
                 {
-                    throw new ArgumentException("This email is not valid!");
+                    throw new ArgumentException("ERROR: Invalid email adress!");
                 }
 
             }
@@ -88,12 +93,12 @@
         {
             StringBuilder result = new StringBuilder();
             result.AppendFormat(
-                    "Panda Name: {0}, Email: {1}, Gender: {2}, IsMale: {3}, IsFemale: {4} \nList of friends: \n",
+                    "Panda Name: {0}, Email: {1}, Gender: {2}, IsMale: {3}, IsFemale: {4} \nList of Friends: \n",
                     this.name, this.email, this.gender, this.isMale, this.isFemale);
-                foreach (var friend in friends)
-                {
-                    result.Append(friend.Name + " ");
-                }
+            foreach (var friend in Friends)
+            {
+                result.Append(friend.Name + " ");
+            }
             return result.ToString();
         }
 
@@ -120,15 +125,15 @@
             }
         }
 
-        public static bool IsNameValid(string name)
-        {
-            if (!Regex.Match(name, "^[A-Z][a-zA-Z]*$").Success)
-            {
-                return false;
-            }
+        //public static bool IsNameValid(string name)
+        //{
+        //    if (!Regex.Match(name, "^[A-Z][a-zA-Z]*$").Success)
+        //    {
+        //        return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
         public static bool IsEmailValid(string strEmail)
         {
